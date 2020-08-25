@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject {
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'username', 'phone', 'email', 'password','api_token','status','profile_picture'
+        'username', 'phone', 'password','api_token','status'
     ];
 
     /**
@@ -61,7 +61,5 @@ class User extends Authenticatable implements JWTSubject {
         return [];
     }
 
-    public static function getUserProfileImagePath($id){
-        return User::IMAGE_FOLDER.'/'.$id;
-    }
+
 }

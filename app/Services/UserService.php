@@ -17,8 +17,8 @@ class UserService
         $this->user = new User();
     }
 
-	public function checkUser($email,$password){
-		if( $user = User::query()->where('email',$email)->first() ){
+	public function checkUser($phone,$password){
+		if( $user = User::query()->where('phone',$phone)->where('status','1')->first() ){
 			if( Hash::check($password,$user['password']) ){
 				return $user;
 			} else{

@@ -24,24 +24,19 @@ class RegisterFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users,email,'.request()->id.',id,deleted_at,NULL',
-            'phone' => 'required|min:10|unique:users,phone,'.request()->id.',id,deleted_at,NULL',
+            'username' => 'required|regex:/^[\pL\s\-]+$/u',
+            'phone' => 'required|digits:10|unique:users,phone,'.request()->id.',id,deleted_at,NULL',
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password|min:6',
-            'profile_image' => 'required|mimes:jpg,jpeg,png', //Remove space from 'picture'
         ];
     }
 
     public function messages()
     {
         return [
-            'first_name.required' => 'First Name is required',
-            'last_name.required' => 'Last Name is required',
-            'email.required' => 'Email is required',
-            'email.email' => 'Invalid email address',
-            'phone_number.required' => 'Phone Number is required',
+            'username.required' => 'Username is required',
+            'phone.required' => 'Phone Number is required',
+            'phone.phone' => 'Invalid phone number',
             'password.required' => 'Password is required',
         ];
     }

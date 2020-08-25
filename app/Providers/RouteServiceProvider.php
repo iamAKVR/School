@@ -50,7 +50,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapUserApiRoutes();
 
-        $this->mapPostApiRoutes();
         //
     }
 
@@ -112,18 +111,5 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/User/user.php'));
     }
 
-    /**
-     * Define the "api" routes for the Post.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapPostApiRoutes(){
-        Route::prefix('api')
-             ->middleware(['api'])
-             ->namespace($this->namespace)
-             ->group(base_path('routes/Post/post.php'));
-    }
 
 }

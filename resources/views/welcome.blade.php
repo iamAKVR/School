@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>School</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Transfer APP
+                School APP
                 </div>
 
                <p> This is Base url </p>
@@ -89,7 +89,7 @@
                <p>use Bearer token auth </p>
                <p> X-Requested-With:XMLHttpRequest  add this to postman header, otherwise you cant test it</p> 
                <p>
-                    <a href="https://docs.google.com/spreadsheets/d/1C0GLLQcpUxqVvixKQZCg_efZju7a2xt2zEZTXjAjZ30/edit?usp=sharing">click here to view sheet </a>
+                    <a href="https://docs.google.com/spreadsheets/d/1ZNkl0vQuykkkr2V_mUSiYh5esIidVoAIcFB2x6v9LEk/edit?usp=sharing">click here to view sheet </a>
                </p>
             </div>
         </div>

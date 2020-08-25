@@ -45,5 +45,5 @@ Route::group(['namespace' => 'Api\User', 'prefix' => 'user' ], function ($router
  //Route::post('hello1','Api\User\HomeController@index')->name('hello1');
  //Route::get('otp','Api\User\HomeController@otp')->name('otp');
 
- Route::post('otp','Api\User\OtpController@generate')->name('otp');
+
  

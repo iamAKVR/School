@@ -34,25 +34,11 @@ class RegisterController extends Controller
      */
     public function create(RegisterFormRequest $request){ 
        
-       $data = $request->all();
+       $data = $request->except(['confirm_password']);
        $data['api_token'] = Str::random(60);
-       $data['username'] = $request->first_name." ".$request->last_name;
        $data['status'] = 1;
        $data['password'] = Hash::make($request->password);
        $user = User::create($data);
-
-       if($request->hasFile('profile_image')){
-            $filename = $data['phone'].md5(time().rand(0,9999));
-            $extension = $request->file('profile_image')->getClientOriginalExtension();
-            $profile_image = $filename.'.'.$extension;
-            $profile_image_path = config('app.url')."/storage/".User::getUserProfileImagePath($user->id)."/".$profile_image;
-            if (!File::isDirectory(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix() . User::getUserProfileImagePath($user->id))) {
-                Storage::disk('public')->makeDirectory(User::getUserProfileImagePath($user->id));
-            }
-            Storage::disk('public')->put(User::getUserProfileImagePath($user->id).'/'.$profile_image,  File::get($request->file('profile_image')));
-        } 
-        $user->profile_picture =  $profile_image_path; 
-        $user->save();
         return response()->successResponse('User created', [
             'user' => $user,
         ]);
